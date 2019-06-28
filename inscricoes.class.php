@@ -6,14 +6,15 @@ class Inscricoes {
 		$this->pdo = new PDO("mysql:dbname=projeto_sympla;host=localhost", "root", "");
 	}
 
-	public function inscrever($id_evento, $id_usuario, $nome_usuario) {
+	public function inscrever($id_evento, $id_usuario, $nome_usuario, $nome_evento, $ingresso) {
 		if($this->alreadySubscribed($id_evento, $id_usuario) == false) {
-			$sql = "INSERT INTO inscricoes (id_evento, id_usuario, nome_usuario, ingresso) VALUES (:id_evento, :id_usuario, :nome_usuario, :ingresso)";
+			$sql = "INSERT INTO inscricoes SET id_evento = :id_evento, id_usuario = :id_usuario, nome_usuario = :nome_usuario, nome_evento = :nome_evento, ingresso = :ingresso";
 			$sql = $this->pdo->prepare($sql);
 			$sql->bindValue(":id_evento", $id_evento);
 			$sql->bindValue(":id_usuario", $id_usuario);
 			$sql->bindValue(":nome_usuario", $nome_usuario);
-			$sql->bindValue(":ingresso", md5(md5($id_evento.md5(rand(0, 10000))).$id_usuario.md5($nome_usuario)));		
+			$sql->bindValue(":nome_evento", $nome_evento);
+			$sql->bindValue(":ingresso", $ingresso);		
 			$sql->execute();
 
 			return true;
@@ -40,6 +41,19 @@ class Inscricoes {
 		$sql = $this->pdo->prepare($sql);
 		$sql->bindValue(":id_evento", $id_evento);
 		$sql->bindValue(":id_usuario", $id_usuario);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function verificarIngresso($ingresso) {
+		$sql = "SELECT * FROM inscricoes WHERE ingresso = :ingresso"; 
+		$sql = $this->pdo->prepare($sql);
+		$sql->bindValue(":ingresso", $ingresso);
 		$sql->execute();
 
 		if($sql->rowCount() > 0) {

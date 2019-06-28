@@ -86,10 +86,38 @@ class Usuarios {
 			$sql = $sql->fetch();
 			return $sql['nome'];
 		} else {
-			return array();
+			return false;
 		}
 	}
 
+	public function getEmailById($id) {
+		$sql = "SELECT * FROM usuarios WHERE id = :id";
+		$sql = $this->pdo->prepare($sql);
+		$sql->bindValue(":id", $id);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			$sql = $sql->fetch();
+
+			return $sql['email'];
+		} else {
+			return false;
+		}
+	}
+
+	public function getUsuarioByIngresso($ingresso) {
+		$sql = "SELECT * FROM inscricoes WHERE ingresso = :ingresso";
+		$sql = $this->pdo->prepare($sql);
+		$sql->bindValue(":ingresso", $ingresso);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			$sql = $sql->fetch();
+			return $sql['nome_usuario'];
+		} else {
+			return false;
+		}
+	}
 
 }
 ?>

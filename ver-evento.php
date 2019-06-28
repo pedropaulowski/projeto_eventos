@@ -47,7 +47,7 @@ $usuarios->getNomeLogado($id);
 <a>Hora: <?php echo $eventos->getHoraById($id); ?></a><br/>
 <a>Endereço: <?php echo $eventos->getEnderecoById($id); ?></a><br/>
 
-Gostou?<a href="inscrever.php?id_evento=<?php echo $_GET['id_evento']; ?>">Inscreva-se agora!</a><br/>
+Gostou?<a href="inscrever.php?id_evento=<?php echo $_GET['id_evento'].'&id_criador='.$_GET['id_criador']; ?>">Inscreva-se agora!</a><br/>
 <a href="sair.php">Sair</a>
 <a href="voltar-index.php">Voltar</a>
 

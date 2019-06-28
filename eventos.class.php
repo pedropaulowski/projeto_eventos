@@ -64,7 +64,7 @@ class Eventos {
 		if($sql->rowCount() > 0) {
 			$sql = $sql->fetch();
 
-			return $sql['titulo'];
+			echo $sql['titulo'];
 		} else {
 			return false;
 		}
@@ -154,5 +154,17 @@ class Eventos {
 		}
 	}
 
+	public function getEventosByIdUsuario($id_usuario) {
+		$sql = "SELECT * FROM inscricoes WHERE id_usuario = :id_usuario";
+		$sql = $this->pdo->prepare($sql);
+		$sql->bindValue(":id_usuario", $id_usuario);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			return $sql->fetchAll();
+		} else {
+			return "Não se inscriveu em nenhum, <a href='ver-eventos.php'>veja os eventos!</a>";
+		}
+	}
 }
 ?>

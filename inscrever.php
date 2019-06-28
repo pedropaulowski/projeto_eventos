@@ -21,11 +21,14 @@ if(isset($_GET['id_evento']) && !empty($_GET['id_evento']) && isset($_GET['id_cr
 		$id_evento = addslashes($_GET['id_evento']);
 		$id_usuario = addslashes($_SESSION['id']);
 		$nome_usuario = $usuarios->getUsuariosById($id_usuario);
+		$nome_evento = $eventos->getTituloById($id);
+		$ingresso = md5(md5($id_evento.md5(rand(0, 10000))).$id_usuario.md5($nome_usuario));
 
-		$inscricoes->inscrever($id_evento, $id_usuario, $nome_usuario);
-
-		$link = 'ver-evento.php?id_evento='.$id.'&id_criador='.$id_criador;
-		header("Location:".$link);
+		if($inscricoes->inscrever($id_evento, $id_usuario, $nome_usuario, $nome_evento, $ingresso) == true) {
+			header("Location:ver-eventos.php");
+		} else {
+			header("Location:ver-eventos.php");
+		}
 	} else {
 		header("Location:ver-eventos.php");
 	}
