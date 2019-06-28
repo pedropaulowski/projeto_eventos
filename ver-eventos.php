@@ -15,7 +15,7 @@ $id = $_SESSION['id'];
 $usuarios = new Usuarios();
 $usuarios->getNomeLogado($id);
 ?>
-<a><?php echo $usuarios->getNomeLogado($id);?></a><br/>
+<a href="perfil.php?id=<?php echo $_SESSION['id']; ?>"><?php echo $usuarios->getNomeLogado($id);?></a><br/>
 <a href="sair.php">Sair</a>
 <a href="index.php">Voltar</a>
 <table border="1" width="100%">

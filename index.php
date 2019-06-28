@@ -10,7 +10,7 @@ $id = $_SESSION['id'];
 
 $usuarios->getNomeLogado($id);
 ?>
-<a href="perfil.php?id=<?php echo $id; ?>"><?php echo $usuarios->getNomeLogado($id);?></a><br/>
+<a href="perfil.php?id=<?php echo $_SESSION['id']; ?>"><?php echo $usuarios->getNomeLogado($id);?></a><br/>
 <a href="sair.php">Sair</a>
 <a href="eventos-criados.php?id_criador=<?php echo $id; ?>">Eventos Criados</a>
 <a href="criar-evento.php">Criar Evento</a>
