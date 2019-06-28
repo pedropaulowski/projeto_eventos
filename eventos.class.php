@@ -64,7 +64,7 @@ class Eventos {
 		if($sql->rowCount() > 0) {
 			$sql = $sql->fetch();
 
-			echo $sql['titulo'];
+			return $sql['titulo'];
 		} else {
 			return false;
 		}

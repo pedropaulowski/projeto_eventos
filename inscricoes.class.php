@@ -7,9 +7,8 @@ class Inscricoes {
 	}
 
 	public function inscrever($id_evento, $id_usuario, $nome_usuario, $nome_evento, $ingresso) {
-		if($this->alreadySubscribed($id_evento, $id_usuario) == false) {
-			$sql = "INSERT INTO inscricoes SET id_evento = :id_evento, id_usuario = :id_usuario, nome_usuario = :nome_usuario, nome_evento = :nome_evento, ingresso = :ingresso";
-			$sql = $this->pdo->prepare($sql);
+		if($this->alreadySubscribed($id_evento, $id_usuario) == false) {		
+			$sql = $this->pdo->prepare("INSERT INTO inscricoes SET id_evento = :id_evento, id_usuario = :id_usuario, nome_usuario = :nome_usuario, nome_evento = :nome_evento, ingresso = :ingresso");
 			$sql->bindValue(":id_evento", $id_evento);
 			$sql->bindValue(":id_usuario", $id_usuario);
 			$sql->bindValue(":nome_usuario", $nome_usuario);
