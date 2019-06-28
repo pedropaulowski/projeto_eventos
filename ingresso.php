@@ -26,8 +26,11 @@ $ingresso = addslashes($_GET['ingresso']);
 	$aux .= 't=P';
 ?>
 <center>
-	<div style="max-width:960px;margin: auto;">
-		Nome: <?php echo $usuarios->getUsuarioByIngresso($ingresso); ?>
+	<div style="max-width:460px;margin: auto; text-align: left;">
+		<div style="float:left;">
+			<a>Nome: <?php echo $usuarios->getUsuarioByIngresso($ingresso); ?></a><br/>
+		<a>Evento: <b><?php echo $eventos->getEventoByIngresso($ingresso); ?></b></a><br/>
+		</div>
 		<div style="float: right;border: 1px solid black;">
 			<img src="<?php echo $aux; ?>"/>
 		</div>

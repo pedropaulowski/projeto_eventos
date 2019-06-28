@@ -166,5 +166,18 @@ class Eventos {
 			return "Não se inscriveu em nenhum, <a href='ver-eventos.php'>veja os eventos!</a>";
 		}
 	}
+	public function getEventoByIngresso($ingresso) {
+		$sql = "SELECT * FROM inscricoes WHERE ingresso = :ingresso";
+		$sql = $this->pdo->prepare($sql);
+		$sql->bindValue(":ingresso", $ingresso);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			$sql = $sql->fetch();
+			return $sql['nome_evento'];
+		} else {
+			return false;
+		}
+	}
 }
 ?>
