@@ -29,18 +29,19 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 
 	<table border="1" width="60%">
 		<tr>
-			<th>Id_evento</th>
+			<th>Evento</th>
 			<th>Ingresso</th>	
 		</tr>
 		<?php
+		if($eventos->getEventosByIdUsuario($id_usuario) != false){
 		$lista = $eventos->getEventosByIdUsuario($id_usuario);
 		foreach ($lista as $evento):
 		?>
 		<tr>
-			<td><?php echo $evento['id_evento']; ?></td>
-			<td><a href="ingresso.php?ingresso=<?php echo $evento['ingresso']; ?>"><?php echo $evento['ingresso']; ?></a></td>	
+			<td><?php echo $evento['nome_evento']; ?></td>
+			<td><a href="ingresso.php?ingresso=<?php echo $evento['ingresso']; ?>">Ver ingresso</a></td>	
 		</tr>
-		<?php endforeach;?>
+		<?php endforeach;}?>
 	</table>
 	<a href="sair.php">Sair</a>
 	<a href="voltar-index.php">Pagina Inicial</a>

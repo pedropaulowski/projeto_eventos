@@ -163,7 +163,7 @@ class Eventos {
 		if($sql->rowCount() > 0) {
 			return $sql->fetchAll();
 		} else {
-			return "Não se inscriveu em nenhum, <a href='ver-eventos.php'>veja os eventos!</a>";
+			return false;
 		}
 	}
 	public function getEventoByIngresso($ingresso) {
