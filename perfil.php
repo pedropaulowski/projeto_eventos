@@ -12,7 +12,7 @@ if(empty($_SESSION['id'])) {
 	header("Location:login.php");
 }
 
-if(isset($_GET['id']) && !empty($_GET['id'])) {
+if(isset($_GET['id']) && !empty($_GET['id']) && $_SESSION['id'] == $_GET['id']) {
 	$id = addslashes($_GET['id']);
 	$id_usuario = addslashes($_GET['id']);
 	$usuarios->getNomeLogado($id);
