@@ -20,9 +20,9 @@ $ingresso = addslashes($_GET['ingresso']);
 ?>
 <?php
 	$aux = 'qr_img0.50j/php/qr_img.php?';
-	$aux .= 'd='.$ingresso.'&';
+	$aux .= 'd=sistema_eventos/ingressos.php?ingresso='.$ingresso.'&';
 	$aux .= 'e=H&';
-	$aux .= 's=5&';
+	$aux .= 's=4&';
 	$aux .= 't=P';
 ?>
 <center>
