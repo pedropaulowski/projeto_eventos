@@ -62,6 +62,13 @@ class Inscricoes {
 		}
 	}
 
+	public function apagarIngresso($ingresso) {
+		$sql = "DELETE FROM inscricoes WHERE ingresso = :ingresso"; 
+		$sql = $this->pdo->prepare($sql);
+		$sql->bindValue(":ingresso", $ingresso);
+		$sql->execute();
+	}
+
 
 }
 ?>

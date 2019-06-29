@@ -39,7 +39,7 @@ if(isset($_GET['id']) && !empty($_GET['id']) && $_SESSION['id'] == $_GET['id']) 
 		?>
 		<tr>
 			<td><?php echo $evento['nome_evento']; ?></td>
-			<td><a href="ingresso.php?ingresso=<?php echo $evento['ingresso']; ?>">Ver ingresso</a></td>	
+			<td><a href="ingresso.php?ingresso=<?php echo $evento['ingresso']; ?>" target="_blank">Ver ingresso</a></td>	
 		</tr>
 		<?php endforeach;}?>
 	</table>
