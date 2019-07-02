@@ -16,10 +16,10 @@ $inscricoes = new Inscricoes;
 <table border="1" width="100%">
 	<tr>
 		<th>Titulo</th>
-		<th>Data (Ano-Mês-Dia)</th>
-		<th>Horário</th>
+		<th>Data (Ano-MÃªs-Dia)</th>
+		<th>HorÃ¡rio</th>
 		<th>Inscritos</th>
-		<th>Ações</th>		
+		<th>AÃ§Ãµes</th>		
 	</tr>
 	<?php
 	if(isset($_GET['id_criador']) && !empty($_GET['id_criador'])) {

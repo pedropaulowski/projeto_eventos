@@ -13,10 +13,10 @@ if(isset($_GET['ingresso']) && !empty($_GET['ingresso'])) {
 	if($inscricoes->verificarIngresso($ingresso) == true) {		
 		echo "Ingresso para ".$usuarios->getUsuarioByIngresso($ingresso)." em ".$eventos->getEventoByIngresso($ingresso);
 	} else {
-		echo "<h3>Ingresso n√£o existe ou j√° foi usado!<h3/>";
+		echo "<h3>Ingresso n„o existe ou j· foi usado!<h3/>";
 	}
 } else {
-	echo "<h3>Ingresso n√£o existe!<h3/>";
+	echo "<h3>Ingresso n„o existe!<h3/>";
 }
 
 ?>

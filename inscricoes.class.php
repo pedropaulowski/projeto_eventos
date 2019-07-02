@@ -31,7 +31,7 @@ class Inscricoes {
 		if($sql->rowCount() > 0) {
 			return $sql->rowCount();
 		} else {
-			return "Ainda não há inscrições";
+			return "Ainda nÃ£o hÃ¡ inscriÃ§Ãµes";
 		}
 	}
 

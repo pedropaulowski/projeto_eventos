@@ -44,6 +44,6 @@ if(isset($_GET['id']) && !empty($_GET['id']) && $_SESSION['id'] == $_GET['id']) 
 		<?php endforeach;}?>
 	</table>
 	<a href="sair.php">Sair</a>
-	<a href="voltar-index.php">Pagina Inicial</a>
+	<a href="voltar-index.php">Página Inicial</a>
 
 </center>

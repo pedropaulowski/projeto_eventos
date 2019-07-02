@@ -39,13 +39,13 @@ $usuarios->getNomeLogado($id);
 
 ?>
 <a><?php echo $usuarios->getNomeLogado($id);?></a><br/>
-<a>Título: <?php echo $eventos->getTituloById($id_evento);?></a><br/>
+<a>TÃ­tulo: <?php echo $eventos->getTituloById($id_evento);?></a><br/>
 <a>Inscritos: <?php echo $inscricoes->showCountInscricoes($id_evento); ?></a><br/>
 <a>Organizador: <?php echo $eventos->getCriadorByIdCriador($id_criador); ?></a><br/>
-<a>Descrição do Evento: <?php echo $eventos->getDescricaoById($id_evento); ?></a><br/>
+<a>DescriÃ§Ã£o do Evento: <?php echo $eventos->getDescricaoById($id_evento); ?></a><br/>
 <a>Data: <?php echo $eventos->getDataById($id_evento); ?></a><br/>
 <a>Hora: <?php echo $eventos->getHoraById($id_evento); ?></a><br/>
-<a>Endereço: <?php echo $eventos->getEnderecoById($id_evento); ?></a><br/>
+<a>EndereÃ§o: <?php echo $eventos->getEnderecoById($id_evento); ?></a><br/>
 
 Gostou?<a href="inscrever.php?id_evento=<?php echo $_GET['id_evento'].'&id_criador='.$_GET['id_criador']; ?>">Inscreva-se agora!</a><br/>
 <a href="sair.php">Sair</a>

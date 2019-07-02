@@ -23,15 +23,15 @@ if(isset($_POST['titulo']) && isset($_POST['descricao']) && isset($_POST['data']
 }
 ?>
 <form method="POST"/>
-	Título:<br/>
+	TÃ­tulo:<br/>
 	<input type="text" name="titulo"/><br/><br/>
-	Descrição:<br/>
+	DescriÃ§Ã£o:<br/>
 	<input type="text" name="descricao"/><br/><br/>
 	Data:<br/>
 	<input type="date" name="data"/><br/><br/>
 	Hora:<br/>
 	<input type="time" name="hora"/><br/><br/>
-	Endereço:<br/>
+	EndereÃ§o:<br/>
 	<input type="text" name="endereco"/><br/><br/>
 	<input type="submit" value="Criar Evento"/>
 </form>
