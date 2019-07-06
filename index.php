@@ -12,9 +12,63 @@ if(empty($_SESSION['id'])) {
 $id = $_SESSION['id'];
 $usuarios->getNomeLogado($id);
 ?>
-<a href="perfil.php?id=<?php echo $_SESSION['id']; ?>"><?php echo $usuarios->getNomeLogado($id);?></a><br/>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Página Inicial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="bootstrap.min.css"/>
+	<script type="text/javascript" src="popper.min.js"></script>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+</head>
+<body class="bg-light">
+<div class="container-fluid">
+		<div class="row bg-primary justify-content-between">
+			<div class="col-xs-3">
+				<h1 class="text-light">Gaebal Eventos</h1>
+			</div>
+			<div class="col-xs-2">
+				<a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a>
+				<button class="btn btn-danger"><a href="sair.php" class="text-light">Sair</a></button>
+			</div>
+		</div>
+		<div class="row justify-content-center bg-light">
+			<div class="col-xs-6"><h2>O que deseja?</h2></div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-xs-4">
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title"><a href="eventos-criados.php?id_criador=<?php echo $id; ?>">Eventos Criados</a></h5>
+						<p class="card-text">Aqui estão os eventos que você criou.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title"><a href="criar-evento.php">Criar Evento</a></h5>
+						<p class="card-text">Aqui você poderá criar um evento como quiser.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title"><a href="ver-eventos.php">Ver Eventos</a></h5>
+						<p class="card-text">Aqui você visualiza todos eventos e pode se inscrever neles.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+</body>
+</html>
+<!--<a href="perfil.php?id=<?/*php echo $_SESSION['id']; ?>"><?php echo $usuarios->getNomeLogado($id);?></a><br/>
 <a href="sair.php">Sair</a>
 <a href="eventos-criados.php?id_criador=<?php echo $id; ?>">Eventos Criados</a>
 <a href="criar-evento.php">Criar Evento</a>
 <a href="ver-eventos.php">Ver Eventos</a><br/><br/>
-Gostou do sistema?  <a href="curtir-app.php?id=<?php echo $id; ?>">Curtir</a><?php echo "  ".$curtidas->showCountCurtidas()." pessoas curtiram!";?> 
+Gostou do sistema?  <a href="curtir-app.php?id=<?php echo $id; ?>">Curtir</a><?php echo "  ".$curtidas->showCountCurtidas()." pessoas curtiram!";?>
+

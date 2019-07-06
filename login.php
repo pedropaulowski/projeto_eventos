@@ -37,7 +37,7 @@ if(isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) &
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>Login</title>
+	<title>Cadastre-se</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" href="bootstrap.min.css"/>
 	<script type="text/javascript" src="popper.min.js"></script>

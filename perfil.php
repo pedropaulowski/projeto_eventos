@@ -21,29 +21,53 @@ if(isset($_GET['id']) && !empty($_GET['id']) && $_SESSION['id'] == $_GET['id']) 
 	header("Location:index.php");
 }
 ?>
-<center>
-<a>Nome: <b><?php echo $usuarios->getNomeLogado($id); ?></b></a><br/>
 
-<a>Email: <b><?php echo $usuarios->getEmailById($id); ?></b></a>
-<h4>Eventos Inscritos</h4>
-
-	<table border="1" width="60%">
-		<tr>
-			<th>Evento</th>
-			<th>Ingresso</th>	
-		</tr>
-		<?php
-		if($eventos->getEventosByIdUsuario($id_usuario) != false){
-		$lista = $eventos->getEventosByIdUsuario($id_usuario);
-		foreach ($lista as $evento):
-		?>
-		<tr>
-			<td><?php echo $evento['nome_evento']; ?></td>
-			<td><a href="ingresso.php?ingresso=<?php echo $evento['ingresso']; ?>" target="_blank">Ver ingresso</a></td>	
-		</tr>
-		<?php endforeach;}?>
-	</table>
-	<a href="sair.php">Sair</a>
-	<a href="voltar-index.php">Página Inicial</a>
-
-</center>
+<html>
+<head>
+<head>
+	<meta charset="utf-8"/>
+	<title>Criar evento</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="bootstrap.min.css"/>
+	<script type="text/javascript" src="popper.min.js"></script>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+</head>
+<body class="bg-light">
+<div class="container-fluid">
+	<div class="row bg-primary justify-content-between">
+		<div class="col-xs-3">
+			<h1 class="text-light">Gaebal Eventos</h1>
+		</div>
+		<div class="col-xs-9">
+			<a href="index.php" class="text-light">Página inicial</a>
+			<a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a>
+			<button class="btn btn-danger"><a href="sair.php" class="text-light">Sair</a></button>
+		</div>
+	</div>
+	<div class="row justify-content-center bg-light">
+		<div class="col-xs-6"><h2>Enventos Inscritos</h2></div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<table class="table table-hover table-light" >
+				<tr>
+					<th>Evento</th>
+					<th>Ingresso</th>	
+				</tr>
+				<?php
+				if($eventos->getEventosByIdUsuario($id_usuario) != false){
+				$lista = $eventos->getEventosByIdUsuario($id_usuario);
+				foreach ($lista as $evento):
+				?>
+				<tr>
+					<td><?php echo $evento['nome_evento']; ?></td>
+					<td><a href="ingresso.php?ingresso=<?php echo $evento['ingresso']; ?>" target="_blank">Ver ingresso</a></td>	
+				</tr>
+				<?php endforeach;}?>
+			</table>
+		</div>
+	</div>
+</div>
+</body>
+</html>

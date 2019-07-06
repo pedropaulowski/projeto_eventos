@@ -38,17 +38,48 @@ $usuarios = new Usuarios();
 $usuarios->getNomeLogado($id);
 
 ?>
-<a><?php echo $usuarios->getNomeLogado($id);?></a><br/>
-<a>Título: <?php echo $eventos->getTituloById($id_evento);?></a><br/>
-<a>Inscritos: <?php echo $inscricoes->showCountInscricoes($id_evento); ?></a><br/>
-<a>Organizador: <?php echo $eventos->getCriadorByIdCriador($id_criador); ?></a><br/>
-<a>Descrição do Evento: <?php echo $eventos->getDescricaoById($id_evento); ?></a><br/>
-<a>Data: <?php echo $eventos->getDataById($id_evento); ?></a><br/>
-<a>Hora: <?php echo $eventos->getHoraById($id_evento); ?></a><br/>
-<a>Endereço: <?php echo $eventos->getEnderecoById($id_evento); ?></a><br/>
-
-Gostou?<a href="inscrever.php?id_evento=<?php echo $_GET['id_evento'].'&id_criador='.$_GET['id_criador']; ?>">Inscreva-se agora!</a><br/>
-<a href="sair.php">Sair</a>
-<a href="voltar-index.php">Voltar</a>
-
-
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ver vento</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="bootstrap.min.css"/>
+	<script type="text/javascript" src="popper.min.js"></script>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+</head>
+<body class="bg-light">
+<div class="container-fluid">
+	<div class="row bg-primary justify-content-between">
+		<div class="col-xs-3">
+			<h1 class="text-light">Gaebal Eventos</h1>
+		</div>
+		<div class="col-xs-9">
+			<a href="index.php" class="text-light">Página inicial</a>
+			<a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a>
+			<button class="btn btn-danger"><a href="sair.php" class="text-light">Sair</a></button>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-xs-12">
+			<div class="card" style="width: 18rem;">
+				<div class="card-body text-center">
+					<h3 class="card-title"><?php echo $eventos->getTituloById($id_evento);?></h3>
+					<p class="card-text"><?php echo $eventos->getDescricaoById($id_evento); ?></p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Inscritos: <?php echo $inscricoes->showCountInscricoes($id_evento); ?></li>
+					<li class="list-group-item">Organizador: <?php echo $eventos->getCriadorByIdCriador($id_criador); ?></li>
+					<li class="list-group-item">Data: <?php echo $eventos->getDataById($id_evento); ?></li>
+					<li class="list-group-item">Hora: <?php echo $eventos->getHoraById($id_evento); ?></li>
+					<li class="list-group-item">Endereço: <?php echo $eventos->getEnderecoById($id_evento); ?></li>
+				</ul>
+				<div class="card-body">
+					<button class="btn btn-danger"><a href="inscrever.php?id_evento=<?php echo $_GET['id_evento'].'&id_criador='.$_GET['id_criador']; ?>" class="text-light">Inscreva-se agora!</a></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
