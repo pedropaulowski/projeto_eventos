@@ -33,40 +33,40 @@ $usuarios->getNomeLogado($id);
 			<h1 class="text-light">Gaebal Eventos</h1>
 		</div>
 		<div class="col-xs-9">
-			<a href="index.php" class="text-light">Página inicial</a>
-			<a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a>
+			<button class="btn btn-dark"><a href="index.php" class="text-light">Página inicial</a></button>
+			<button class="btn btn-dark"><a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a></button>
 			<button class="btn btn-danger"><a href="sair.php" class="text-light">Sair</a></button>
 		</div>
 	</div>
 	<div class="row justify-content-center bg-light">
 		<div class="col-xs-6"><h2>Aqui estão todos eventos</h2></div>
 	</div>
-	<div class="row justify-content-center">
-		<div class="col-xs-12">
-			<div class="table-responsive-sm">
-				<table class="table table-hover table-light">
-					<tr>
-						<th>Titulo</th>
-						<th>Data (Ano-Mês-Dia)</th>
-						<th>Horário</th>
-						<th>Inscritos</th>
-						<th>Ações</th>		
-					</tr>
-					<?php
-					$lista = $eventos->getAllAbertos();
-					foreach ($lista as $evento):
-					?>
-					<tr>
-						<td><?php echo $evento['titulo']; ?></td>
-						<td><?php echo $evento['data']; ?></td>
-						<td><?php echo $evento['hora']; ?></td>
-						<td><?php $id_evento = $evento['id'];
-						echo $inscricoes->showCountInscricoes($id_evento); ?></td>
-						<td><button class="btn btn-danger"><a href="inscrever.php?id_evento=<?php echo $evento['id'].'&'."id_criador=".$evento['id_criador']; ?>" class="text-light">Inscrever-se</a></button><button class="btn btn-success"><a href="ver-evento.php?id_evento=<?php echo $evento['id'].'&'."id_criador=".$evento['id_criador']; ?>" class="text-light">+ INFO</a></button></td>						
-					</tr>
-					<?php endforeach;?>
-				</table>
+	<div class="container">
+		<div class="row justify-content-center">
+			<?php
+			$lista = $eventos->getAllAbertos();
+			foreach ($lista as $evento):
+			?>
+			<div class="col-xs-4">
+				<div class="card" style="width: 18rem;">
+					<div class="card-body text-center">
+						<h3 class="card-title"><?php echo $evento['titulo'];?></h3>
+						<p class="card-text"><?php echo $evento['descricao']; ?></p>
+					</div>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+						Inscritos: <?php $id_evento = $evento['id'];
+						echo $inscricoes->showCountInscricoes($id_evento); ?></li>
+						<li class="list-group-item">Organizador: <?php $id_criador = $evento['id_criador'];echo $eventos->getCriadorByIdCriador($id_criador); ?></li>
+						<li class="list-group-item">Endereço: <?php echo $evento['endereco']; ?></li>
+					</ul>
+					<div class="card-body text-center">
+						<button class="btn btn-danger"><a href="inscrever.php?id_evento=<?php echo $evento['id'].'&id_criador='.$evento['id_criador']; ?>" class="text-light">Inscrever</a></button>
+						<button class="btn btn-success"><a href="ver-evento.php?id_evento=<?php echo $evento['id'].'&'."id_criador=".$evento['id_criador']; ?>" class="text-light">+INFO</a></button>
+					</div>
+				</div>
 			</div>
+			<?php endforeach;?>
 		</div>
 	</div>
 </div>

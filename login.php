@@ -49,9 +49,9 @@ if(isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) &
 		<div class="container">
 			<h1>Bem-vindo ao Gaebal Eventos</h1>
 			<h6 class="text-secondary">Aqui você pode registrar eventos, participar de eventos e avaliá-los após o termino.<br/> Não tem conta ainda?<a href="cadastro.php"> Cadastre-se</a>!</h6>
-			<div class="row justify-content-center">
-				<div class="col-xs-4">
-					<h3>Entre agora!</h3>
+			<div class="row justify-content-end">
+				<div class="col-sm-2">
+					<h3>Log In!</h3>
 					<form method="POST">
 						E-mail:<br/>
 						<input type="email" name="email"/><br/><br/>

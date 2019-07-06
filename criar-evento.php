@@ -41,8 +41,8 @@ $id = $id_criador;
 			<h1 class="text-light">Gaebal Eventos</h1>
 		</div>
 		<div class="col-xs-9">
-			<a href="index.php" class="text-light">Página inicial</a>
-			<a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a>
+			<button class="btn btn-dark"><a href="index.php" class="text-light">Página inicial</a></button>
+			<button class="btn btn-dark"><a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a></button>
 			<button class="btn btn-danger"><a href="sair.php" class="text-light">Sair</a></button>
 		</div>
 	</div>
@@ -50,7 +50,7 @@ $id = $id_criador;
 		<div class="col-xs-6"><h2>Criar evento</h2></div>
 	</div>
 	<div class="row justify-content-center">	
-		<div class="col-xs-6">
+		<div class="col-xs-8">
 			<form method="POST">
 				<div class="form-group">		
 					<label for="inputAddress">Título</label>
@@ -58,7 +58,7 @@ $id = $id_criador;
 					<label for="inputAddress">Descrição</label>
 					<input type="text"  class="form-control" id="inputAddress2" placehorder="Descrição do evento" name="descricao"/>
 					<div class="row">
-						<div class="col">
+						<div class="col-xs">
 							<label for="inputAddress">Data</label>
 							<input type="date"  class="form-control" id="inputDate1" name="data"/>
 						</div>
@@ -66,12 +66,11 @@ $id = $id_criador;
 							<label for="inputAddress">Hora</label>
 							<input type="time"  class="form-control" id="inputTime1" name="hora"/>
 						</div>
-					<div class="row">
-						<div class="col">
+						<br/>
+						<div class="col-xs">
 							<label for="inputAddress">Endereço</label>
 							<input type="text"  class="form-control" id="inputAddress2" placehorder="Insira um endereço" name="endereco"/>
 						</div>
-					</div>
 				</div>
 				<br/>
 				<div class="row">

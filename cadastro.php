@@ -37,9 +37,9 @@ if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['senha']) && 
 		<div class="container">
 			<h1>Bem-vindo ao Gaebal Eventos</h1>
 			<h6 class="text-secondary">Aqui você pode registrar eventos, participar de eventos e avaliá-los após o termino.<br/> Não tem conta ainda? Cadastre-se abaixo.</h6>
-			<div class="row justify-content-center">
-				<div class="col-xs-4">
-					<h3>Cadastre-se!</h3>
+			<div class="row justify-content-end">
+				<div class="col-sm-3">
+					<h3>Cadastre!</h3>
 					<form method="POST">
 						Nome:<br/>
 						<input type="text" name="nome"/><br/><br/>

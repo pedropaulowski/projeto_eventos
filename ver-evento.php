@@ -55,8 +55,8 @@ $usuarios->getNomeLogado($id);
 			<h1 class="text-light">Gaebal Eventos</h1>
 		</div>
 		<div class="col-xs-9">
-			<a href="index.php" class="text-light">Página inicial</a>
-			<a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a>
+			<button class="btn btn-dark"><a href="index.php" class="text-light">Página inicial</a></button>
+			<button class="btn btn-dark"><a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a></button>
 			<button class="btn btn-danger"><a href="sair.php" class="text-light">Sair</a></button>
 		</div>
 	</div>
