@@ -41,8 +41,23 @@ $usuarios->getNomeLogado($id);
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>Ver vento</title>
+	<title>Gaebal Eventos - Ver evento</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="title" content="Gaebal Eventos - Ver evento"/>
+	<meta name="keywords" content="Eventos, Sympla, Gaebal, Paulowski"/>
+	<meta name="descripton" content="Publique eventos gratuitamente e se inscreva. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="theme-color" content="#007bff"/>
+	<meta property="og:title" content="Gaebal Eventos"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:url" content="https://paulowski.gq/ver-evento.php"/>
+	<meta property="og:image" content="https://paulowski.gq/imgs/paulowskige.png"/>
+	<meta property="og:image:secure_url" content="https://paulowski.gq/imgs/paulowskige.png"/>
+	<meta property="og:description" content="Publique eventos gratuitamente e se inscreva. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
+	<meta property="fb:app_id" content="589392398495320"/>
+	<meta name="twitter:image" content="https://paulowski.gq/imgs/paulowskige.png"/>
+	<link rel="shortcut icon" type="image/png" href="https://paulowski.gq/imgs/paulowskige.png"/>
+	<link rel="canonical" href="https://paulowski.gq/ver-evento.php"/>
 	<link rel="stylesheet" href="bootstrap.min.css"/>
 	<script type="text/javascript" src="popper.min.js"></script>
 	<script type="text/javascript" src="jquery.min.js"></script>
@@ -55,9 +70,14 @@ $usuarios->getNomeLogado($id);
 			<h1 class="text-light">Gaebal Eventos</h1>
 		</div>
 		<div class="col-xs-9">
+			<?php if(isset($_SESSION['id'])): ?>
 			<button class="btn btn-dark"><a href="index.php" class="text-light">Página inicial</a></button>
 			<button class="btn btn-dark"><a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a></button>
 			<button class="btn btn-danger"><a href="sair.php" class="text-light">Sair</a></button>
+		    <?php else: ?>
+		    <button class="btn btn-light"><a href="login.php" class="text-dark">Log In</a></button>
+		   	<button class="btn btn-danger"><a href="cadastro.php" class="text-light">Cadastre-se</a></button>
+		    <?php endif;?>
 		</div>
 	</div>
 	<div class="row justify-content-center">

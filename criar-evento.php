@@ -66,7 +66,6 @@ $id = $id_criador;
 							<label for="inputAddress">Hora</label>
 							<input type="time"  class="form-control" id="inputTime1" name="hora"/>
 						</div>
-						<br/>
 						<div class="col-xs">
 							<label for="inputAddress">Endereço</label>
 							<input type="text"  class="form-control" id="inputAddress2" placehorder="Insira um endereço" name="endereco"/>
