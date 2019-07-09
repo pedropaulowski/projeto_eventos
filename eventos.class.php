@@ -6,8 +6,8 @@ class Eventos {
 		$this->pdo = new PDO("mysql:dbname=projeto_sympla;host=localhost", "root", "");
 	}
 
-	public function setEvento($id_criador, $nome_criador, $titulo, $descricao, $data, $hora, $endereco, $status) {
-		$sql = "INSERT INTO eventos (id_criador, titulo, descricao, data, hora, endereco) VALUES (:id_criador, :titulo, :descricao, :data, :hora, :endereco)";
+	public function setEvento($id_criador, $nome_criador, $titulo, $descricao, $data, $hora, $endereco, $status, $categoria) {
+		$sql = "INSERT INTO eventos (id_criador, titulo, descricao, data, hora, endereco, categoria) VALUES (:id_criador, :titulo, :descricao, :data, :hora, :endereco, :categoria)";
 		$sql = $this->pdo->prepare($sql);
 		$sql->bindValue(":id_criador", $id_criador);
 		$sql->bindValue(":titulo", $titulo);
@@ -15,12 +15,27 @@ class Eventos {
 		$sql->bindValue(":data", $data);
 		$sql->bindValue(":hora", $hora);
 		$sql->bindValue(":endereco", $endereco);
+		$sql->bindValue(":categoria", $categoria);
 		$sql->execute();
 
 	}
 
 	public function getAllAbertos() {
-		$sql = $this->pdo->query("SELECT * FROM eventos WHERE status = 0");
+		$sql = $this->pdo->prepare("SELECT * FROM eventos WHERE status = 0");
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			return $sql->fetchAll();
+		} else {
+			return array();
+		}
+	}
+
+	public function getAllAbertosWithCategoria($categoria){
+		$sql = $this->pdo->prepare("SELECT * FROM eventos WHERE status = 0 AND categoria = :categoria");
+		$sql->bindValue(":categoria", $categoria);
+		$sql->execute();
+
 		if($sql->rowCount() > 0) {
 			return $sql->fetchAll();
 		} else {
@@ -180,4 +195,5 @@ class Eventos {
 		}
 	}
 }
+
 ?>

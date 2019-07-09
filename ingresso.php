@@ -24,7 +24,7 @@ $ingresso = addslashes($_GET['ingresso']);
 ?>
 <?php
 	$aux = 'qr_img0.50j/php/qr_img.php?';
-	$aux .= 'd=localhost/sistema_eventos/confirmar-ingresso.php?ingresso='.$ingresso.'&';
+	$aux .= 'd=https://paulowski.gq/confirmar-ingresso.php?ingresso='.$ingresso.'&';
 	$aux .= 'e=H&';
 	$aux .= 's=4&';
 	$aux .= 't=P';
@@ -34,7 +34,7 @@ $ingresso = addslashes($_GET['ingresso']);
 		<div style="float:left;">
 			<a>Nome: <?php echo $usuarios->getUsuarioByIngresso($ingresso); ?></a><br/>
 		<a>Evento: <b><?php echo $eventos->getEventoByIngresso($ingresso); ?></b></a><br/>
-		<a href="<?php echo 'http://localhost/sistema_eventos/qr_img0.50j/php/qr_img.php?d=localhost/sistema_eventos/confirmar-ingresso.php?ingresso='.$ingresso.'&e=H&s=4&t=P'; ?>" download >Baixar QRCode (Ingresso)</a>
+		<a href="<?php echo 'https://paulowski.gq/qr_img0.50j/php/qr_img.php?d=paulowski.gq/confirmar-ingresso.php?ingresso='.$ingresso.'&e=H&s=4&t=P'; ?>" download >Baixar QRCode (Ingresso)</a>
 		<h6>Apresentar QRCode na entrada do evento</h6>
 		</div>
 		<div style="float: right;border: 1px solid black;">

@@ -57,7 +57,7 @@ $usuarios->getNomeLogado($id);
 			<div class="col-xs-4">
 				<div class="card" style="width: 18rem;">
 					<div class="card-body">
-						<h5 class="card-title"><a href="ver-eventos.php">Ver Eventos</a></h5>
+						<h5 class="card-title"><a href="ver-eventos.php?categoria=0">Ver Eventos</a></h5>
 						<p class="card-text">Aqui você visualiza todos eventos e pode se inscrever neles.</p>
 					</div>
 				</div>
@@ -66,10 +66,5 @@ $usuarios->getNomeLogado($id);
 </div>
 </body>
 </html>
-<!--<a href="perfil.php?id=<?/*php echo $_SESSION['id']; ?>"><?php echo $usuarios->getNomeLogado($id);?></a><br/>
-<a href="sair.php">Sair</a>
-<a href="eventos-criados.php?id_criador=<?php echo $id; ?>">Eventos Criados</a>
-<a href="criar-evento.php">Criar Evento</a>
-<a href="ver-eventos.php">Ver Eventos</a><br/><br/>
-Gostou do sistema?  <a href="curtir-app.php?id=<?php echo $id; ?>">Curtir</a><?php echo "  ".$curtidas->showCountCurtidas()." pessoas curtiram!";?>
+
 
