@@ -32,7 +32,7 @@ $usuarios->getNomeLogado($id);
 		<div class="col-xs-3">
 			<h1 class="text-light">Gaebal Eventos</h1>
 		</div>
-		<div class="col-xs-9">
+		<div class="col-xs-6">
 			<button class="btn btn-dark"><a href="index.php" class="text-light">Página inicial</a></button>
 			<button class="btn btn-dark"><a href="perfil.php?id=<?php echo $_SESSION['id']; ?>" class="text-light"><?php echo $usuarios->getNomeLogado($id);?></a></button>
 			<button class="btn btn-danger"><a href="sair.php" class="text-light">Sair</a></button>
@@ -45,19 +45,23 @@ $usuarios->getNomeLogado($id);
 		<div class="row justify-content-around">
 			<div class="col-xs-1">
 				<form method="GET">
-					<label>Selectione a categoria a categoria</label>
-					<select class="form-control" name="categoria">
-						<option value="0" <?php if($_GET['categoria'] == "0" || empty($_GET['categoria'])) echo "selected";?>>Todos</option>
-						<option value="1" <?php if($_GET['categoria'] == "1") echo "selected";?>>Festa</option>
-						<option value="2" <?php if($_GET['categoria'] == "2") echo "selected";?>>Palestra</option>
-						<option value="3" <?php if($_GET['categoria'] == "3") echo "selected";?>>Encontro de pessoas</option>
-						<option value="4" <?php if($_GET['categoria'] == "4") echo "selected";?>>Evento Esportivo</option>
-						<option value="5" <?php if($_GET['categoria'] == "5") echo "selected";?>>Evento de E-sports</option>
-						<option value="6" <?php if($_GET['categoria'] == "6") echo "selected";?>>Evento Universitário</option>
-					</select>
+					<div class="form-group">
+						<label>Procure pelo nome</label>
+						<input type="text" name="titulo" class="form-control" <?php if(isset($_GET['titulo'])) echo 'value="'.$_GET['titulo'].'"'?>/>
+						<label>Selectione a categoria</label>
+						<select class="form-control" name="categoria">
+							<option value="0" <?php if($_GET['categoria'] == "0" || empty($_GET['categoria'])) echo "selected";?>>Todos</option>
+							<option value="1" <?php if($_GET['categoria'] == "1") echo "selected";?>>Festa</option>
+							<option value="2" <?php if($_GET['categoria'] == "2") echo "selected";?>>Palestra</option>
+							<option value="3" <?php if($_GET['categoria'] == "3") echo "selected";?>>Encontro de pessoas</option>
+							<option value="4" <?php if($_GET['categoria'] == "4") echo "selected";?>>Evento Esportivo</option>
+							<option value="5" <?php if($_GET['categoria'] == "5") echo "selected";?>>Evento de E-sports</option>
+							<option value="6" <?php if($_GET['categoria'] == "6") echo "selected";?>>Evento Universitário</option>
+						</select>
 
-					<div class="mt-3 float-right">
-					<button type="submit" class="btn btn-dark">Filtrar</button>
+						<div class="mt-3 float-right">
+						<button type="submit" class="btn btn-dark">Filtrar</button>
+						</div>
 					</div>
 				</form>		
 			</div>
@@ -65,13 +69,23 @@ $usuarios->getNomeLogado($id);
 				<div class="row justify-content-center">
 					<?php
 					
-					if(isset($_GET['categoria']) && $_GET['categoria'] != "0"){
-						$categoria = addslashes($_GET['categoria']);
-						$lista = $eventos->getAllAbertosWithCategoria($categoria);
-					} else {
-						$categoria = "0";
-						$lista = $eventos->getAllAbertos();
-					}
+    					if(isset($_GET['titulo']) && !empty($_GET['titulo']) && isset($_GET['categoria'])){
+    						$titulo = addslashes($_GET['titulo']);
+    						$categoria = addslashes($_GET['categoria']);
+    						if($categoria == "0"){
+    							$lista = $eventos->searchOnlyByTitulo($titulo);
+    						} else {
+    							$lista = $eventos->searchByTituloAndCategoria($titulo, $categoria);
+    						}
+    					} else {
+    						$categoria = addslashes($_GET['categoria']);
+    						if($categoria == "0"){
+    							$lista = $eventos->getAllAbertos();
+    						} else {
+    							$lista = $eventos->getAllAbertosWithCategoria($categoria);
+    						}
+    					}
+
 					foreach ($lista as $evento):
 					?>
 					<div class="col-xs-4">
@@ -86,6 +100,7 @@ $usuarios->getNomeLogado($id);
 								echo $inscricoes->showCountInscricoes($id_evento); ?></li>
 								<li class="list-group-item">Organizador: <?php $id_criador = $evento['id_criador'];echo $eventos->getCriadorByIdCriador($id_criador); ?></li>
 								<li class="list-group-item">Endereço: <?php echo $evento['endereco']; ?></li>
+								<li class="list-group-item">Categoria: <?php echo $evento['categoria']; ?></li>
 							</ul>
 							<div class="card-body text-center">
 								<button class="btn btn-danger"><a href="inscrever.php?id_evento=<?php echo $evento['id'].'&id_criador='.$evento['id_criador']; ?>" class="text-light">Inscrever</a></button>

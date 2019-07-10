@@ -35,7 +35,7 @@ if(isset($_GET['id']) && !empty($_GET['id']) && $_SESSION['id'] == $_GET['id']) 
 </head>
 <body class="bg-light">
 <div class="container-fluid">
-	<div class="row bg-primary justify-content-between">
+	<div class="row bg-primary justify-content-around align-items-center">
 		<div class="col-xs-3">
 			<h1 class="text-light">Gaebal Eventos</h1>
 		</div>

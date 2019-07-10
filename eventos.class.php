@@ -31,9 +31,30 @@ class Eventos {
 		}
 	}
 
-	public function getAllAbertosWithCategoria($categoria){
+	public function getAllAbertosWithCategoria($categoria) {
 		$sql = $this->pdo->prepare("SELECT * FROM eventos WHERE status = 0 AND categoria = :categoria");
 		$sql->bindValue(":categoria", $categoria);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			return $sql->fetchAll();
+		} else {
+			return array();
+		}
+	}
+	public function searchByTituloAndCategoria($titulo, $categoria) {
+		$sql = $this->pdo->prepare("SELECT * FROM eventos WHERE titulo LIKE '%".$titulo."%' AND categoria = :categoria");
+		$sql->bindValue(":categoria", $categoria);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			return $sql->fetchAll();
+		} else {
+			return array();
+		}
+	}
+	public function searchOnlyByTitulo($titulo) {
+		$sql = $this->pdo->prepare("SELECT * FROM eventos WHERE titulo LIKE '%".$titulo."%'");
 		$sql->execute();
 
 		if($sql->rowCount() > 0) {

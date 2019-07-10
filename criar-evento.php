@@ -37,7 +37,7 @@ $id = $id_criador;
 </head>
 <body class="bg-light">
 <div class="container-fluid">
-	<div class="row bg-primary justify-content-between">
+	<div class="row bg-primary justify-content-around align-items-center">
 		<div class="col-xs-3">
 			<h1 class="text-light">Gaebal Eventos</h1>
 		</div>
@@ -83,18 +83,15 @@ $id = $id_criador;
 					</div>
 				</div>
 				<div>
-				<label >Endereço</label>
-				<input type="text"  class="form-control" name="endereco"/>
+					<label >Endereço</label>
+					<input type="text"  class="form-control" name="endereco"/>
 				</div>
 				<br/>
 				<div class="float-right">
-				<button type="submit" class="btn btn-success">Criar evento</button>
-				</div>
-			</div>
-							
+					<button type="submit" class="btn btn-success">Criar evento</button>
+				</div>							
 			</form>
-		</div>
-	</div>
+
 </div>
 </body>
 </html>
