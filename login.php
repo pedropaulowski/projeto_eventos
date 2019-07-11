@@ -79,7 +79,13 @@ if(isset($_POST['email']) && isset($_POST['senha']) && !empty($_POST['email']) &
 				<div class="col-xs-12">
 					<div class="card justify-content-center">
 						<h5 class="card-header bg-secondary text-light">+ Informações</h5>
-						<p class="card-text">[É uma versão de teste] Site feito especialmente para quem deseja publicar eventos gratuitamente. Nosso sistema é extremamente seguro. Quando uma pessoa se cadastra o número do ingresso é sempre diferente de ingressos anteriores, então, este é um número criptografado com informações do evento e do inscrito, tornando impossível alguém roubar o número de ingresso de outra pessoa. Não só isso, disponibilizamos para o usuário o download do QRCode correspondente ao seu ingresso. Ao chegar na porta do evento e verificar o QRCode, ele irá apontar quem foi a pessoa que o adquiriu, criando um sistema de difícil violação. Desenvolvimento 100% de Pedro Paulo, segue duas redes sociais: <a href="https://www.instagram.com/paulowski_official/" target="_blank" class="text-dark">Instagram </a>e<a href="https://www.linkedin.com/in/paulowski/" target="_blank"> LinkedIn</a>.</p>
+						<p class="card-text">[É uma versão de teste] Site feito especialmente para quem deseja publicar eventos gratuitamente. 
+							Nosso sistema é extremamente seguro.
+							Quando uma pessoa se cadastra o número do ingresso é sempre diferente de ingressos anteriores, 
+							então, este é um número criptografado com informações do evento e do inscrito, 
+							tornando impossível alguém roubar o número de ingresso de outra pessoa. 
+							Não só isso, disponibilizamos para o usuário o download do QRCode correspondente ao seu ingresso.
+							Ao chegar na porta do evento e verificar o QRCode, ele irá apontar quem foi a pessoa que o adquiriu, criando um sistema de difícil violação. Desenvolvimento 100% de Pedro Paulo, segue duas redes sociais: <a href="https://www.instagram.com/paulowski_official/" target="_blank" class="text-dark">Instagram </a>e<a href="https://www.linkedin.com/in/paulowski/" target="_blank"> LinkedIn</a>.</p>
 						<a href="cadastro.php" class="btn btn-primary" style="width: 14rem;margin:auto;">Cadastre-se agora!</a> 
 					</div>
 				</div>
