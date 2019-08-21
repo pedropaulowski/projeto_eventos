@@ -4,10 +4,6 @@ require 'eventos.class.php';
 require 'usuarios.class.php';
 require 'inscricoes.class.php';
 
-if(empty($_SESSION['id'])) {
-	header("Location:login.php");
-}
-
 $eventos = new Eventos();
 $inscricoes = new Inscricoes();
 
@@ -32,32 +28,30 @@ if(isset($_GET['id_evento']) && !empty($_GET['id_evento']) && isset($_GET['id_cr
 } else {
 	header("Location:ver-eventos.php");
 }
-
 $id = $_SESSION['id'];
 $usuarios = new Usuarios();
 $usuarios->getNomeLogado($id);
-
 ?>
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>Gaebal Eventos - Ver evento</title>
+	<title><?php echo $eventos->getTituloById($id_evento);?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="title" content="Gaebal Eventos - Ver evento"/>
+	<meta name="title" content="<?php echo $eventos->getTituloById($id_evento);?>"/>
 	<meta name="keywords" content="Eventos, Sympla, Gaebal, Paulowski"/>
-	<meta name="descripton" content="Publique eventos gratuitamente e se inscreva. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
+	<meta name="descripton" content="<?php echo $eventos->getDescricaoById($id_evento); ?>"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta name="theme-color" content="#007bff"/>
-	<meta property="og:title" content="Gaebal Eventos"/>
+	<meta property="og:title" content="<?php echo $eventos->getTituloById($id_evento);?>"/>
 	<meta property="og:type" content="article"/>
-	<meta property="og:url" content="https://paulowski.gq/ver-evento.php"/>
-	<meta property="og:image" content="https://paulowski.gq/imgs/paulowskige.png"/>
-	<meta property="og:image:secure_url" content="https://paulowski.gq/imgs/paulowskige.png"/>
-	<meta property="og:description" content="Publique eventos gratuitamente e se inscreva. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
+	<meta property="og:url" content="https://paulowski.gq/ver-evento.php?id_evento=<?php echo $id_evento;?>&id_criador=<?php echo $id_criador;?>"/>
+	<meta property="og:image" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<meta property="og:image:secure_url" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<meta property="og:description" content="<?php echo $eventos->getDescricaoById($id_evento); ?>"/>
 	<meta property="fb:app_id" content="589392398495320"/>
-	<meta name="twitter:image" content="https://paulowski.gq/imgs/paulowskige.png"/>
-	<link rel="shortcut icon" type="image/png" href="https://paulowski.gq/imgs/paulowskige.png"/>
-	<link rel="canonical" href="https://paulowski.gq/ver-evento.php"/>
+	<meta name="twitter:image" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<link rel="shortcut icon" type="image/png" href="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<link rel="canonical" href="https://paulowski.gq/ver-evento.php?id_evento=<?php echo $id_evento;?>&id_criador=<?php echo $id_criador;?>"/>
 	<link rel="stylesheet" href="bootstrap.min.css"/>
 	<script type="text/javascript" src="popper.min.js"></script>
 	<script type="text/javascript" src="jquery.min.js"></script>
@@ -65,9 +59,9 @@ $usuarios->getNomeLogado($id);
 </head>
 <body class="bg-light">
 <div class="container-fluid">
-	<div class="row bg-primary justify-content-between">
+	<div class="row bg-primary justify-content-around align-items-center">
 		<div class="col-xs-3">
-			<h1 class="text-light">Gaebal Eventos</h1>
+			<h1 class="text-light"><img src="gaebal/lamp_white.png" width="55"/></h1>
 		</div>
 		<div class="col-xs-9">
 			<?php if(isset($_SESSION['id'])): ?>

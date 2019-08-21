@@ -9,17 +9,16 @@ if(!isset($_SESSION['id']) && empty($_SESSION['id'])) {
 	header("Location:login.php");
 }
 $id_criador = $_SESSION['id'];
-if(isset($_POST['titulo']) && isset($_POST['descricao']) && isset($_POST['data']) && isset($_POST['hora']) && isset($_POST['endereco']) && !empty($_POST['titulo']) && !empty($_POST['descricao']) && !empty($_POST['data']) && !empty($_POST['hora']) && !empty($_POST['endereco']) && !empty($_POST['categoria'])){
+if(isset($_POST['titulo']) && isset($_POST['descricao']) && isset($_POST['data']) && isset($_POST['hora']) && isset($_POST['endereco']) && !empty($_POST['titulo']) && !empty($_POST['descricao']) && !empty($_POST['data']) && !empty($_POST['hora']) && !empty($_POST['endereco'])){
 	$id_criador = $_SESSION['id'];
 	$titulo = addslashes($_POST['titulo']);
 	$descricao = addslashes($_POST['descricao']);
 	$data = addslashes($_POST['data']);
 	$hora = addslashes($_POST['hora']);
 	$endereco = addslashes($_POST['endereco']);
-	$categoria = intval(addslashes($_POST['categoria']));
-
+    $categoria = addslashes($_POST['categoria']);
 	$eventos = new Eventos();
-	$eventos->setEvento($id_criador, $nome_criador, $titulo, $descricao, $data, $hora, $endereco, $status, $categoria);
+	$eventos->setEvento($id_criador, $titulo, $descricao, $data, $hora, $endereco, $categoria);
 
 	header("Location:index.php");
 }
@@ -28,8 +27,23 @@ $id = $id_criador;
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>Criar evento</title>
+	<title>Gaebal - Criar evento</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="title" content="Gaebal - Criar Evento"/>
+	<meta name="keywords" content="Eventos, Sympla, Gaebal, Paulowski, Compra, Venda"/>
+	<meta name="descripton" content="Publique eventos e se inscreva gratuitamente. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="theme-color" content="#007bff"/>
+	<meta property="og:title" content="Gaebal Eventos"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:url" content="https://paulowski.gq/criar-evento.php"/>
+	<meta property="og:image" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<meta property="og:image:secure_url" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<meta property="og:description" content="Publique eventos gratuitamente e se inscreva. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
+	<meta property="fb:app_id" content="589392398495320"/>
+	<meta name="twitter:image" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<link rel="shortcut icon" type="image/svg" href="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<link rel="canonical" href="https://paulowski.gq/criar-evento.php"/>
 	<link rel="stylesheet" href="bootstrap.min.css"/>
 	<script type="text/javascript" src="popper.min.js"></script>
 	<script type="text/javascript" src="jquery.min.js"></script>
@@ -39,7 +53,7 @@ $id = $id_criador;
 <div class="container-fluid">
 	<div class="row bg-primary justify-content-around align-items-center">
 		<div class="col-xs-3">
-			<h1 class="text-light">Gaebal Eventos</h1>
+			<h1 class="text-light"><img src="gaebal/lamp_white.png" width="55"/></h1>
 		</div>
 		<div class="col-xs-9">
 			<button class="btn btn-dark"><a href="index.php" class="text-light">Página inicial</a></button>
@@ -83,15 +97,18 @@ $id = $id_criador;
 					</div>
 				</div>
 				<div>
-					<label >Endereço</label>
-					<input type="text"  class="form-control" name="endereco"/>
+				<label >Endereço</label>
+				<input type="text"  class="form-control" name="endereco"/>
 				</div>
 				<br/>
 				<div class="float-right">
-					<button type="submit" class="btn btn-success">Criar evento</button>
-				</div>							
+				<button type="submit" class="btn btn-success">Criar evento</button>
+				</div>
+			</div>
+							
 			</form>
-
+		</div>
+	</div>
 </div>
 </body>
 </html>

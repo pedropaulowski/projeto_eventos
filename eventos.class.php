@@ -6,7 +6,7 @@ class Eventos {
 		$this->pdo = new PDO("mysql:dbname=projeto_sympla;host=localhost", "root", "");
 	}
 
-	public function setEvento($id_criador, $nome_criador, $titulo, $descricao, $data, $hora, $endereco, $status, $categoria) {
+	public function setEvento($id_criador, $titulo, $descricao, $data, $hora, $endereco, $categoria) {
 		$sql = "INSERT INTO eventos (id_criador, titulo, descricao, data, hora, endereco, categoria) VALUES (:id_criador, :titulo, :descricao, :data, :hora, :endereco, :categoria)";
 		$sql = $this->pdo->prepare($sql);
 		$sql->bindValue(":id_criador", $id_criador);

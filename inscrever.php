@@ -26,9 +26,9 @@ if(isset($_GET['id_evento']) && !empty($_GET['id_evento']) && isset($_GET['id_cr
 		//$inscricoes->inscrever($id_evento, $id_usuario, $nome_usuario, $nome_evento, $ingresso);
 
 		if($inscricoes->inscrever($id_evento, $id_usuario, $nome_usuario, $nome_evento, $ingresso) == true) {
-			header("Location:ver-eventos.php");
+			header("Location:ver-eventos.php?titulo=&categoria=0");
 		} else {
-			header("Location:ver-eventos.php");
+			header("Location:ver-eventos.php?titulo=&categoria=0");
 		}
 	} else {
 		header("Location:index.php");

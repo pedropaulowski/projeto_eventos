@@ -17,6 +17,20 @@ $id = $_SESSION['id'];
 	<meta charset="utf-8"/>
 	<title>Meus Eventos</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="title" content="Gaebal Eventos - Meus Eventos"/>
+	<meta name="keywords" content="Eventos, Sympla, Gaebal, Paulowski, Compra, Venda"/>
+	<meta name="descripton" content="Publique eventos e se inscreva gratuitamente. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
+	<meta name="theme-color" content="#007bff"/>
+	<meta property="og:title" content="Gaebal Eventos"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:url" content="https://paulowski.gq/eventos-criados.php"/>
+	<meta property="og:image" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<meta property="og:image:secure_url" content="https://paulowski.gq/gaebal/lamp_blakc.png"/>
+	<meta property="og:description" content="Publique eventos gratuitamente e se inscreva. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
+	<meta property="fb:app_id" content="589392398495320"/>
+	<meta name="twitter:image" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<link rel="shortcut icon" type="image/png" href="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<link rel="canonical" href="https://paulowski.gq/eventos-criados.php"/>
 	<link rel="stylesheet" href="bootstrap.min.css"/>
 	<script type="text/javascript" src="popper.min.js"></script>
 	<script type="text/javascript" src="jquery.min.js"></script>
@@ -24,9 +38,9 @@ $id = $_SESSION['id'];
 </head>
 <body class="bg-light">
 <div class="container-fluid">
-	<div class="row bg-primary justify-content-between">
+	<div class="row bg-primary justify-content-around align-items-center">
 		<div class="col-xs-3">
-			<h1 class="text-light">Gaebal Eventos</h1>
+			<h1 class="text-light"><img src="gaebal/lamp_white.png" width="55"/></h1>
 		</div>
 		<div class="col-xs-9">
 			<button class="btn btn-dark"><a href="index.php" class="text-light">Página inicial</a></button>

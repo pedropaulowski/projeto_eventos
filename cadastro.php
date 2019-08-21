@@ -25,23 +25,32 @@ if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['senha']) && 
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>Gaebal Eventos - Cadastro</title>
+	<title>Gaebal - Cadastro</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="title" content="Gaebal Eventos - Cadastro"/>
-	<meta name="keywords" content="Eventos, Sympla, Gaebal, Paulowski"/>
+	<meta name="title" content="Gaebal - Cadastro"/>
+	<meta name="keywords" content="Eventos, Gaebal, Paulowski, venda de ingressos, inscrições para eventos, sistema de eventos, gerenciamento de eventos, congressos, workshops, encontros, esportivo, credenciamento, networking, cultural, religioso, feiras, exposições, check-in, fazer ingressos, produção de ingressos, shows, músicas, cursos, festas"/>
 	<meta name="descripton" content="Publique eventos gratuitamente e se inscreva. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta name="theme-color" content="#007bff"/>
 	<meta property="og:title" content="Gaebal Eventos"/>
 	<meta property="og:type" content="article"/>
 	<meta property="og:url" content="https://paulowski.gq/cadastro.php"/>
-	<meta property="og:image" content="https://paulowski.gq/imgs/paulowskige.png"/>
-	<meta property="og:image:secure_url" content="https://paulowski.gq/imgs/paulowskige.png"/>
+	<meta property="og:image" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<meta property="og:image:secure_url" content="https://paulowski.gq/gaebal/lamp_black.png"/>
 	<meta property="og:description" content="Publique eventos gratuitamente e se inscreva. Segurança total e geramos os ingressos e QRCode para você, entre e conheça!"/>
 	<meta property="fb:app_id" content="589392398495320"/>
-	<meta name="twitter:image" content="https://paulowski.gq/imgs/paulowskige.png"/>
-	<link rel="shortcut icon" type="image/png" href="https://paulowski.gq/imgs/paulowskige.png"/>
+	<meta name="twitter:image" content="https://paulowski.gq/gaebal/lamp_black.png"/>
+	<link rel="shortcut icon" type="image/png" href="https://paulowski.gq/gaebal/lamp_black.png"/>
 	<link rel="canonical" href="https://paulowski.gq/cadastro.php"/>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143871219-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-143871219-1');
+    </script>
 	<link rel="stylesheet" href="bootstrap.min.css"/>
 	<script type="text/javascript" src="popper.min.js"></script>
 	<script type="text/javascript" src="jquery.min.js"></script>
